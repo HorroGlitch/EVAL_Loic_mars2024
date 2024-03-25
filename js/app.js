@@ -3,8 +3,8 @@ const nextButton = document.querySelector('.nextButton');
 const carrouselImg = document.querySelector('.carrouselImg');
 
 const testimonialText = document.querySelector('.testimonial-text');
-const entireName = document.querySelector('.entireName');
-const job = document.querySelector('.Job');
+const entireName = document.querySelector('.testimonial-author');
+const testimonialJob = document.querySelector('.testimonial-position');
 
 
 let i = 0;
@@ -46,14 +46,11 @@ let testimonials = [
 
 ]
 
-// console.log(testimonials[i].name)
+console.log(testimonialJob.textContent = testimonials[i].job)
 
 // let tableauImg = ["./images/image-tanya.jpg", "public/images/image-john.jpg"];
 
-function buttonsChangeImg(i, testimonials,
-    testimonialText,
-    entireName,
-    job) {
+function buttonsChangeImg(i, testimonials) {
 
     previousButton.addEventListener("click", ()=>{
         i -= 1
@@ -61,10 +58,14 @@ function buttonsChangeImg(i, testimonials,
             i = testimonials.length-1
             carrouselImg.src = testimonials[i].imgSrc;
             testimonialText.textContent = testimonials[i].testimonial;
+            testimonialJob.textContent = testimonials[i].job;
+            entireName.textContent = testimonials[i].name;
 
         } else {;
             carrouselImg.src = testimonials[i].imgSrc;
             testimonialText.textContent = testimonials[i].testimonial;
+            testimonialJob.textContent = testimonials[i].job;
+            entireName.textContent = testimonials[i].name;
         }
     });
     
@@ -73,10 +74,14 @@ function buttonsChangeImg(i, testimonials,
         if (i > testimonials.length-1) {
             i = 0;
             carrouselImg.src = testimonials[i].imgSrc;
-            testimonialText.textContent = testimonials[i].testimonial;     
+            testimonialText.textContent = testimonials[i].testimonial;   
+            testimonialJob.textContent = testimonials[i].job;  
+            entireName.textContent = testimonials[i].name;
         } else {
             carrouselImg.src = testimonials[i].imgSrc;
             testimonialText.textContent = testimonials[i].testimonial;
+            testimonialJob.textContent = testimonials[i].job;
+            entireName.textContent = testimonials[i].name;
         }
     });
 
@@ -85,16 +90,22 @@ buttonsChangeImg(i, testimonials);
 
 
 
-function changeImgAuto(carrouselImg, testimonials) {
+function changeImgAuto(testimonials) {
         
     let i = 0;
     setInterval(() => {
         i += 1;
-        if (i > tableauImg.length-1) {
+        if (i > testimonials.length-1) {
             i = 0;
-            carrouselImg.src = tableauImg[i];
+            carrouselImg.src = testimonials[i].imgSrc;
+            testimonialText.textContent = testimonials[i].testimonial;
+            testimonialJob.textContent = testimonials[i].job;
+            entireName.textContent = testimonials[i].name;
         } else {
-            carrouselImg.src = tableauImg[i];
+            carrouselImg.src = testimonials[i].imgSrc;
+            testimonialText.textContent = testimonials[i].testimonial;
+            testimonialJob.textContent = testimonials[i].job;
+            entireName.textContent = testimonials[i].name;
         }
     }, 5000);
 }
