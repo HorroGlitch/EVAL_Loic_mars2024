@@ -6,7 +6,6 @@ const testimonialText = document.querySelector('.testimonial-text');
 const entireName = document.querySelector('.testimonial-author');
 const testimonialJob = document.querySelector('.testimonial-position');
 
-
 let i = 0;
 
 let testimonials = [
@@ -43,7 +42,6 @@ let testimonials = [
         testimonial:"As a UI-UX developer, I'm always searching fore some new projects and fun, so I can perform on new things."
     }
 
-
 ]
 
 console.log(testimonialJob.textContent = testimonials[i].job)
@@ -53,6 +51,7 @@ console.log(testimonialJob.textContent = testimonials[i].job)
 function buttonsChangeImg(i, testimonials) {
 
     previousButton.addEventListener("click", ()=>{
+        console.log(i)
         i -= 1
         if (i < 0) {
             i = testimonials.length-1
@@ -61,7 +60,7 @@ function buttonsChangeImg(i, testimonials) {
             testimonialJob.textContent = testimonials[i].job;
             entireName.textContent = testimonials[i].name;
 
-        } else {;
+        } else {
             carrouselImg.src = testimonials[i].imgSrc;
             testimonialText.textContent = testimonials[i].testimonial;
             testimonialJob.textContent = testimonials[i].job;
@@ -90,13 +89,14 @@ buttonsChangeImg(i, testimonials);
 
 
 
+
 function changeImgAuto(testimonials) {
         
     let i = 0;
     setInterval(() => {
         i += 1;
         if (i > testimonials.length-1) {
-            i = 0;
+            testimonials[0]
             carrouselImg.src = testimonials[i].imgSrc;
             testimonialText.textContent = testimonials[i].testimonial;
             testimonialJob.textContent = testimonials[i].job;
